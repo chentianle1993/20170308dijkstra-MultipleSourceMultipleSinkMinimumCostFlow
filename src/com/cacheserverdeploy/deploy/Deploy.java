@@ -1,6 +1,9 @@
 package com.cacheserverdeploy.deploy;
-
-
+import com.cacheserverdeploy.deploy.InputGraph;;
+/**
+ * @author QQ353688193
+ *
+ */
 public class Deploy
 {
     /**
@@ -12,8 +15,12 @@ public class Deploy
      */
     public static String[] deployServer(String[] graphContent)
     {
+    	
         /**do your work here**/
-        return new String[]{"17","\r\n","0 8 0 20"};
+    	InputGraph.setGraphInArray(graphContent);
+
+        
+    	return new String[]{"17","\r\n","0 8 0 20"};
     }
 
 }

@@ -17,4 +17,5 @@
 以此可以减小搜索空间。
 
 算法描述：
-
+Deploy
+->GraphInArray//使用内部类GraphContent创建有向图的矩阵
