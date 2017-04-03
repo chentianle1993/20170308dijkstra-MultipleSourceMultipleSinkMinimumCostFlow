@@ -3,7 +3,7 @@
  */
 package com.cacheserverdeploy.deploy.dijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit;
 
-import com.cacheserverdeploy.deploy.dijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit.collectionClass.DijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit;
+import com.cacheserverdeploy.deploy.dijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit.collectionClass.AllConsumers_AllNetNodesSumTransportCostBelowPricePerServerDivideNeed;
 
 /**
  * @author TaylorChen
@@ -11,7 +11,6 @@ import com.cacheserverdeploy.deploy.dijkstraShortestPathFromEveryConsumer_InPric
  */
 public class Main_InDijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit {
 	public static void main_InDijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit() {
-		DijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit.setDijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit();
+		AllConsumers_AllNetNodesSumTransportCostBelowPricePerServerDivideNeed.setAllConsumers_AllNetNodesSumTransportCostBelowPricePerServerDivideNeed();
 	}
-
 }

@@ -1,0 +1,18 @@
+/**
+ *方法要从上向下实现，对象要从下向上构造，才能调用顶层方法
+ */
+
+AllConsumers_AllNetNodesSumTransportCostBelowPricePerServerDivideNeed//(HashSet)(循环调用下层的构造方法)(完成)
+	-OneConsumer_AllNetNodesSumTransportCostBelowPricePerServerDivideNeed
+		-oneConsumerID_AdjacentNetNodeID_Need_PricePerServerDivideNeed	//(consumerID作为hashCode())	
+		-allCandidateNetNodes_SumTransportCost//TreeSet实现
+			-OneEndNetNodeID_SumTransportCostPerCommodityInDijkstraShortestPath
+				-构造器(NetNodeID,SumTransportCostPerCommodity)
+		-构造器完成
+		-setAllNetNodesIDInPricePerServerDivideNeedLimit()		//未完成
+		-allNetNodesSumTransportCostBelowPricePerServerDivideNeed//(TreeSet实现)
+			-OneEndNetNode_SumTransportCost
+				-构造方法
+				-netNodeID
+				-sumTransportCost//(作为HashSet的Comparator())
+									
