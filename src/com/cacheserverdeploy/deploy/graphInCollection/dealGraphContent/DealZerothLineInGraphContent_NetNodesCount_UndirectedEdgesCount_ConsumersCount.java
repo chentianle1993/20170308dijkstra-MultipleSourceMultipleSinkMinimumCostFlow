@@ -1,14 +1,14 @@
 /**
  * 
  */
-package com.cacheserverdeploy.deploy.graphInCollection;
+package com.cacheserverdeploy.deploy.graphInCollection.dealGraphContent;
 
 /**
  * 处理graphContent中第零行
  * @author TaylorChen
  *
  */
-public class NetNodesCount_UndirectedEdgesCount_ConsumersCount {
+public class DealZerothLineInGraphContent_NetNodesCount_UndirectedEdgesCount_ConsumersCount {
 	public static int netNodesCount;
 	public static int undirectedEdgesCount;
 	public static int consumersCount;

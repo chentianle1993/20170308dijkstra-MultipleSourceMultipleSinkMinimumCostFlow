@@ -1,5 +1,8 @@
 package com.cacheserverdeploy.deploy;
 
+import com.cacheserverdeploy.deploy.dijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit.Main_InDijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit;
+import com.cacheserverdeploy.deploy.graphInCollection.Main_InGraphInCollection;
+
 /**
  * @author QQ353688193
  *
@@ -18,12 +21,13 @@ public class Deploy
     	
         /**do your work here**/
     	//将无向图按有向图存入集合
-    	com.cacheserverdeploy.deploy.graphInCollection.MainClass.mainClass(graphContent);
+    	Main_InGraphInCollection.main_InGraphInCollection(graphContent);
     	
-    	//TODO 用dijkstra算法获得每个consumer的可达netNode
-    	
+    	//用dijkstra算法获得每个consumer的可达netNode
+    	Main_InDijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit.main_InDijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit();
     	
     	//TODO 在所有netNode上遍历布置Server，用多源多汇最小费用流求结果
+    	
     	
     	return new String[]{"17","\r\n","0 8 0 20"};
     }

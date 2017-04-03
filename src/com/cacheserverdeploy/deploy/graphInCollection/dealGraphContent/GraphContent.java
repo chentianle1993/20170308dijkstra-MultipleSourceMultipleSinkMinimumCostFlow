@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.cacheserverdeploy.deploy.graphInCollection;
+package com.cacheserverdeploy.deploy.graphInCollection.dealGraphContent;
 
 /**
  * 保存graphContent

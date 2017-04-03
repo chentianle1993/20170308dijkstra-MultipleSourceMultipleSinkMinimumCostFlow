@@ -1,0 +1,18 @@
+构造方法需要一层嵌套一层
+
+1.所有的网络节点(应该用自上而下的编码方式，上层的具体方法调用下层来实现，而不应该自下而上,但构造对象时要从下向上构造)
+(完成)	AllStarterNetNodesID_AllAdjacentNetNodesID_PricePerUnit(TreeSet集合,HashSet不能查找指定元素并返回)(需要实现addOrUpdate())
+(完成)		-OneStarterNetNodeID_AllAdjacentNetNodesID_PricePerUnit（元素）(用构造方法)（用starterNetNodeID作为equals()完成）
+				-starterNetNodeID
+(完成)			-allAdjacentNetNodesID_Capacity_PricePerUnit（TreeSet集合，未写成类，应该写成类比较好）(用addOrUpdate())
+(完成)				-OneEndNetNodeID_Capacity_PricePerUnit（元素）(用构造方法)(用pricePerUnit作为comparator)
+						-endNetNodeID
+						-capacity
+						-pricePerUnit
+2.所有的消费节点
+AllConsumersID_AdjacentNetNodeID_Need_PricePerServerDivideNeed(集合)(用add())
+	-oneConsumersID_AdjacentNetNodeID_Need_PricePerServerDivideNeed（元素）（用构造方法）
+		-consumerID;
+		-oneAdjacentNetNodeID;
+		-need;
+		-pricePerServerDivideNeed;
