@@ -18,4 +18,41 @@
 
 算法描述：
 Deploy
-->GraphInArray//使用内部类GraphContent创建有向图的矩阵
+->GraphInArray.java//使用内部类GraphContent创建有向图的矩阵,并对Dijkstra所用数据进行初始化
+	数据域:
+	routerAmount
+	undirectedEdgeAmount
+	consumerAmount
+	serverUnitPrice
+	
+	capacityInRouterToRouterMatrix//为新增的单源单汇设置一行一列
+	unitCostInRouterToRouterMatrix//为新增的单源单汇设置一行一列
+	
+	minimalUnitCostInConsumerToRouterMatrixUsingDijkstraShortestPath
+	
+->MinorSolutionUsingDijkstra.java//使用内部类OneInfeasibleSolutionUsingDijkstra创建解的有向图
+	OneInfeasibleSolutionUsingDijkstra中的数据域:
+		总费用,
+		指向父解的指针,
+		{
+			{服务器1所在点，与被服务器提供服务的消费节点相邻的网络节点集={8,9},最小费用矩阵即最短路径},//是一个对象
+			{服务器2所在点，与被服务器提供服务的消费节点相邻的网络节点集={8,9},最小费用矩阵即最短路径},
+			...
+			{服务器n所在点，与被服务器提供服务的消费节点相邻的网络节点集={8,9},最小费用矩阵即最短路径},
+		}
+->EnumerateSolution.java//使用内部类OneSolutionUsingMultipleSourceMultipleSink
+	OneSolutionUsingEnumerateAndMultipleSourceMultipleSink中的数据结构
+		总费用,
+		容量矩阵，
+		费用矩阵,
+		{
+			路径1={起始服务器，网络节点a1,...网络节点aN，终止网络节点，消费节点，容量，费用},
+			路径2={起始服务器，网络节点a1,...网络节点aN，终止网络节点，消费节点，容量，费用},
+			...
+			路径n={起始服务器，网络节点a1,...网络节点aN，终止网络节点，消费节点，容量，费用},
+		}
+
+
+
+
+

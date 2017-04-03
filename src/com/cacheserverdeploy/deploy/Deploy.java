@@ -1,5 +1,5 @@
 package com.cacheserverdeploy.deploy;
-import com.cacheserverdeploy.deploy.InputGraph;;
+
 /**
  * @author QQ353688193
  *
@@ -17,9 +17,14 @@ public class Deploy
     {
     	
         /**do your work here**/
-    	InputGraph.setGraphInArray(graphContent);
-
-        
+    	//将无向图按有向图存入集合
+    	com.cacheserverdeploy.deploy.graphInCollection.MainClass.mainClass(graphContent);
+    	
+    	//TODO 用dijkstra算法获得每个consumer的可达netNode
+    	
+    	
+    	//TODO 在所有netNode上遍历布置Server，用多源多汇最小费用流求结果
+    	
     	return new String[]{"17","\r\n","0 8 0 20"};
     }
 
