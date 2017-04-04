@@ -8,29 +8,49 @@ package com.cacheserverdeploy.deploy.dijkstraShortestPath.elementClassInCollecti
  * @author TaylorChen
  * @usedIn OneConsumer_AllNearNetNodes.java
  */
-public class OnePathEndNetNode implements Comparable<OnePathEndNetNode>{
-	public final int pathEndNetNodeID;
+public class OneNearNetNode implements Comparable<OneNearNetNode>{
+	public int pathEndNetNodeID;
 	public int pricePerUnitOfWholePath;
 	
 	/**构造方法
 	 * @param pathEndNetNodeID
 	 * @param pricePerUnitOfWholePath
 	 */
-	public OnePathEndNetNode(int pathEndNetNodeID, int pricePerUnitOfWholePath) {
+	public OneNearNetNode(int pathEndNetNodeID, int pricePerUnitOfWholePath) {
 		super();
 		this.pathEndNetNodeID = pathEndNetNodeID;
 		this.pricePerUnitOfWholePath = pricePerUnitOfWholePath;
 	}
 
-	
-	
+
+
+
 	/* （非 Javadoc）
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	@Override
-	public int compareTo(OnePathEndNetNode anotherPathEndNetNode) {
+	public int compareTo(OneNearNetNode anotherPathEndNetNode) {
 		// TODO 自动生成的方法存根
 		return (pricePerUnitOfWholePath-anotherPathEndNetNode.pricePerUnitOfWholePath);
 	}
+
+
+	/* （非 Javadoc）
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		OneNearNetNode other = (OneNearNetNode) obj;
+		if (this.pathEndNetNodeID != other.pathEndNetNodeID)
+			return false;
+		return true;
+	}
+
 
 }

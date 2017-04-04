@@ -5,7 +5,8 @@ package com.cacheserverdeploy.deploy.dijkstraShortestPath.elementClassInCollecti
 
 import java.util.Iterator;
 
-import com.cacheserverdeploy.deploy.dijkstraShortestPath.collectionClass.AllPathEndNetNodes;
+import com.cacheserverdeploy.deploy.dijkstraShortestPath.collectionClass.AllCandidateNetNodes;
+import com.cacheserverdeploy.deploy.dijkstraShortestPath.collectionClass.AllNearNetNodes;
 import com.cacheserverdeploy.deploy.graphInCollection.collectionClass.AllNetNodes;
 import com.cacheserverdeploy.deploy.graphInCollection.elementClassInCollection.OneAdjacentNetNode;
 import com.cacheserverdeploy.deploy.graphInCollection.elementClassInCollection.OneConsumer;
@@ -22,11 +23,11 @@ public class OneConsumer_AllNearNetNodes implements Comparable<OneConsumer_AllNe
 	/**
 	 * 候选节点集合
 	 */
-	public AllPathEndNetNodes allCandidateNetNodes;
+	public AllCandidateNetNodes allCandidateNetNodes;
 	/**
 	 * 已经确认的近邻节点集合，集合内的节点与consumer的距离均<=每台服务器价格/consumer的需求
 	 */
-	public AllPathEndNetNodes allNearNetNodes;
+	public AllNearNetNodes allNearNetNodes;
 	
 	/**
 	 *构造器
@@ -36,8 +37,8 @@ public class OneConsumer_AllNearNetNodes implements Comparable<OneConsumer_AllNe
 	public OneConsumer_AllNearNetNodes(OneConsumer consumer) {
 		super();
 		this.consumer = consumer;
-		allCandidateNetNodes=new AllPathEndNetNodes();
-		allNearNetNodes=new AllPathEndNetNodes();
+		allCandidateNetNodes=new AllCandidateNetNodes();
+		allNearNetNodes=new AllNearNetNodes();
 		//使用Dijkstra算法获得consumer的近邻节点集合
 		setAllNetNodes();
 	}
@@ -63,7 +64,7 @@ public class OneConsumer_AllNearNetNodes implements Comparable<OneConsumer_AllNe
 		 * 加入近邻节点集合
 		 * 循环条件:候选节点的结合不为空
 		 */
-		OnePathEndNetNode joinToAllNearNetNode=allCandidateNetNodes.allNetNodes.first();
+		OneNearNetNode joinToAllNearNetNode=(OneNearNetNode) allCandidateNetNodes.allNetNodes.first();
 		while(joinToAllNearNetNode!=null){
 			allCandidateNetNodes.allNetNodes.remove(joinToAllNearNetNode);
 			allNearNetNodes.allNetNodes.add(joinToAllNearNetNode);
@@ -77,7 +78,7 @@ public class OneConsumer_AllNearNetNodes implements Comparable<OneConsumer_AllNe
 			OneNetNode searchTemp=new OneNetNode(joinToAllNearNetNode.pathEndNetNodeID);
 			OneNetNode resOfSearch=AllNetNodes.get(searchTemp);
 			if(resOfSearch==null){
-				//孤立节点
+				//找不到节点？？？
 				break;
 			}
 			Iterator<OneAdjacentNetNode> iterator=resOfSearch.allAdjacentNetNodes.allAdjacentNetNodes.iterator();
@@ -90,12 +91,13 @@ public class OneConsumer_AllNearNetNodes implements Comparable<OneConsumer_AllNe
 					break;
 				}else{
 					//路径在范围内，加入候选集
-					OnePathEndNetNode temp=new OnePathEndNetNode(adjacentNetNode.adjacentNetNodeID
+					OneCandidateNetNode temp=new OneCandidateNetNode(adjacentNetNode.adjacentNetNodeID
 							, moreOrLessPriceOfWholePath);
 					allCandidateNetNodes.addOrUpdate(temp);
 				}
 			}//邻居节点为空时，循环停止
-			
+			if(allCandidateNetNodes.allNetNodes.isEmpty()==true){break;}
+			joinToAllNearNetNode=(OneNearNetNode) allCandidateNetNodes.allNetNodes.first();
 		}//候选集为空时，循环停止
 	}
 
@@ -103,7 +105,7 @@ public class OneConsumer_AllNearNetNodes implements Comparable<OneConsumer_AllNe
 	 * 将与consumer相邻的网络节点加入候选集
 	 */
 	private void addConsumerAdjacentNetNodeToAllCandidateNetNodes() {
-		OnePathEndNetNode adjacentNetNode=new OnePathEndNetNode(consumer.oneAdjacentNetNodeID, 0);
+		OneCandidateNetNode adjacentNetNode=new OneCandidateNetNode(consumer.oneAdjacentNetNodeID, 0);
 		allCandidateNetNodes.addOrUpdate(adjacentNetNode);
 	}
 	/* （非 Javadoc）
@@ -113,7 +115,24 @@ public class OneConsumer_AllNearNetNodes implements Comparable<OneConsumer_AllNe
 	public int compareTo(OneConsumer_AllNearNetNodes arg0) {
 		// TODO 自动生成的方法存根
 		return consumer.consumerID-arg0.consumer.consumerID;
-	}	
+	}
+	/* （非 Javadoc）
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		OneConsumer_AllNearNetNodes other = (OneConsumer_AllNearNetNodes ) obj;
+		if (this.consumer.consumerID != other.consumer.consumerID)
+			return false;
+		return true;
+	}
+
 	
 	
 
