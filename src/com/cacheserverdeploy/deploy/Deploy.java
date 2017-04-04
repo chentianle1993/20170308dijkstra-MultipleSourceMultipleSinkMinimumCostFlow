@@ -1,6 +1,6 @@
 package com.cacheserverdeploy.deploy;
 
-import com.cacheserverdeploy.deploy.dijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit.Main_InDijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit;
+import com.cacheserverdeploy.deploy.dijkstraShortestPath.Main_InDijkstraShortestPath;
 import com.cacheserverdeploy.deploy.graphInCollection.Main_InGraphInCollection;
 
 /**
@@ -24,7 +24,7 @@ public class Deploy
     	Main_InGraphInCollection.main_InGraphInCollection(graphContent);
     	
     	//用dijkstra算法获得每个consumer的可达netNode
-    	Main_InDijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit.main_InDijkstraShortestPathFromEveryConsumer_InPricePerServerDivideNeedLimit();
+    	Main_InDijkstraShortestPath.main_InDijkstraShortestPath();
     	
     	//TODO 在所有netNode上遍历布置Server，用多源多汇最小费用流求结果
     	

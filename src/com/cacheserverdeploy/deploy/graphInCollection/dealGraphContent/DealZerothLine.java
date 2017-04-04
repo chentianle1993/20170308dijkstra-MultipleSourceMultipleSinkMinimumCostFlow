@@ -8,7 +8,7 @@ package com.cacheserverdeploy.deploy.graphInCollection.dealGraphContent;
  * @author TaylorChen
  *
  */
-public class DealZerothLineInGraphContent_NetNodesCount_UndirectedEdgesCount_ConsumersCount {
+public class DealZerothLine {
 	public static int netNodesCount;
 	public static int undirectedEdgesCount;
 	public static int consumersCount;

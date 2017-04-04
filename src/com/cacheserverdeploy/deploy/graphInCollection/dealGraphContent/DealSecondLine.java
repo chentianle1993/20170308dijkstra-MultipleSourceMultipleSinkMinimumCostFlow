@@ -8,7 +8,7 @@ package com.cacheserverdeploy.deploy.graphInCollection.dealGraphContent;
  * @author TaylorChen
  *
  */
-public class DealSecondLineInGraphContent_PricePerServer {
+public class DealSecondLine {
 	public static int pricePerServer;
 	
 	public static void setPricePerServer(){
